@@ -1,0 +1,11 @@
+GET http://localhost:4001/health
+
+###
+POST http://localhost:4001
+Content-Type: application/json
+
+{
+  "name": "Tanjir",
+  "country": "BD",
+  "rank": 1
+}
