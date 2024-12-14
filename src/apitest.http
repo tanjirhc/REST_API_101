@@ -5,7 +5,7 @@ POST http://localhost:4001
 Content-Type: application/json
 
 {
-  "name": "Tanjir",
+  "name": "Tamim",
   "country": "BD",
-  "rank": 1
+  "rank": 2
 }
