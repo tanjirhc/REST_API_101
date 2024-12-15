@@ -23,3 +23,13 @@ GET http://localhost:4001/4UE1pa_qD
 
 ###
 GET https://api.github.com/tanjirhc
+
+###
+
+PATCH  http://localhost:4001/FQGQneia0
+Content-Type: application/json
+
+{
+  "name": "Tanvir Ahmed",
+  "country": "BD",
+}
