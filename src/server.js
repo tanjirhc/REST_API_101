@@ -12,6 +12,17 @@ app.use(cors())
 app.use(morgan('dev'))
 app.use(express.json())
 
+app.get('/:id', async (req, res) => {
+  const id = req.params.id
+
+  const data = await fs.readFile(dbLocation)
+  const players = JSON.parse(data)
+
+  const player = players.find(item => item.id === id)
+
+  res.status(200).json(player)
+})
+
 app.post('/', async (req, res) => {
   const player = {
     ...req.body,
