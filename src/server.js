@@ -20,6 +20,10 @@ app.get('/:id', async (req, res) => {
 
   const player = players.find(item => item.id === id)
 
+  if(!player) {
+    return res.status(404).json({ message: 'Player Not Found'})
+  }
+
   res.status(200).json(player)
 })
 
