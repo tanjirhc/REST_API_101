@@ -12,6 +12,27 @@ app.use(cors())
 app.use(morgan('dev'))
 app.use(express.json())
 
+app.patch('/:id', async (req, res) => {
+  const id = req.params.id
+
+  const data = await fs.readFile(dbLocation)
+  const players = JSON.parse(data)
+
+  const player = players.find(item => item.id === id)  
+
+  if(!player) {
+    return res.status(404).json({ message: 'Player Not Found'})
+  }
+
+  player.name = req.body.name || player.name
+  player.country = req.body.name || player.country
+  player.rank = req.body.name || player.rank
+
+  await fs.writeFile(dbLocation, JSON.stringify(players))
+  res.status(200).json(player)
+
+})
+
 app.get('/:id', async (req, res) => {
   const id = req.params.id
 
